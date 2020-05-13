@@ -4,11 +4,9 @@ import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import tech.xixing.qaqmall.QaqmallApplicationTests;
 import tech.xixing.qaqmall.dao.ProductMapper;
-import tech.xixing.qaqmall.pojo.Product;
 import tech.xixing.qaqmall.service.IProductService;
 import tech.xixing.qaqmall.vo.ProductVO;
 import tech.xixing.qaqmall.vo.ResponseVO;
@@ -47,13 +45,13 @@ public class ProductServiceImplTest extends QaqmallApplicationTests {
         List<ProductVO> productVOList = cast(list);
 
 
-
-        for (ProductVO productVO : productVOList) {
-            Product product=new Product();
-            BeanUtils.copyProperties(productVO,product);
-            product.setStock(99);
-            productMapper.insertSelective(product);
-        }
+///不想再写一个查list方法，所以放到for循环了，因为数据不够，要插入一次数据，才写的这个方法
+//        for (ProductVO productVO : productVOList) {
+//            Product product=new Product();
+//            BeanUtils.copyProperties(productVO,product);
+//            product.setStock(99);
+//            productMapper.insertSelective(product);
+//        }
         log.info("aaa");
 
 
